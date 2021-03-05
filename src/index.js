@@ -42,13 +42,11 @@ function generateImage(canvasEl) {
 const runGeneration = (canvasEl) => {
   generateImage(canvasEl).then(() => {
     console.log("first time");
-    generateImage(canvasEl).then(() => {
-      console.log("one more time to make sure ");
-      generateImage(canvasEl).then((img) => {
-        console.log("okay now it should be fine");
-        document.body.classList.add("active-popup");
-        popUpEl.appendChild(img);
-      });
+
+    generateImage(canvasEl).then((img) => {
+      console.log("okay now it should be fine");
+      document.body.classList.add("active-popup");
+      popUpEl.appendChild(img);
     });
   });
 
