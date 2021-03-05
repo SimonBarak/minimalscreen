@@ -20,9 +20,53 @@ const allmockupsEl = Array.from(
 
 const removePopUp = () => {
   document.body.classList.remove("active-popup");
-  popUpEl.classList.add("hidden");
   popUpEl.innerHTML = "";
   mainEl.removeEventListener("click", () => {});
+};
+
+function generateImage(canvasEl) {
+  return new Promise((resolve) => {
+    var img = new Image();
+    domtoimage
+      .toPng(canvasEl, { quality: 1 })
+      .then(function (dataUrl) {
+        img.src = dataUrl;
+        return resolve(img);
+      })
+      .catch(function (error) {
+        console.error("oops, something went wrong!", error);
+      });
+  });
+}
+
+const runGeneration = (canvasEl) => {
+  generateImage(canvasEl).then(() => {
+    console.log("first time");
+    generateImage(canvasEl).then(() => {
+      console.log("one more time to make sure ");
+      generateImage(canvasEl).then((img) => {
+        console.log("okay now it should be fine");
+        document.body.classList.add("active-popup");
+        popUpEl.appendChild(img);
+      });
+    });
+  });
+
+  // generateImage(canvasEl).then(() => {
+  //   console.log("first time");
+  //   generateImage().then(() => {
+  //     console.log("one more time to make sure ");
+  //     generateImage().then((img) => {
+  //       console.log("okay now it should be fine");
+  //       popUpEl.appendChild(img);
+  //       document.body.classList.add("active-popup");
+  //       mainEl.addEventListener("click", () => {
+  //         console.log("now2");
+  //         removePopUp();
+  //       });
+  //     });
+  //   });
+  // });
 };
 
 const prepareImage = (canvasEl) => {
@@ -34,7 +78,6 @@ const prepareImage = (canvasEl) => {
     .toPng(canvasEl, { quality: 1 })
     .then(function (dataUrl) {
       document.body.classList.add("active-popup");
-      popUpEl.classList.remove("hidden");
       var img = new Image();
       img.src = dataUrl;
       popUpEl.appendChild(img);
@@ -132,6 +175,5 @@ function dragElement(elmnt) {
 dragElement(document.getElementById("draggable"));
 
 createImageButton.addEventListener("click", () => {
-  console.log(canvasEl);
-  prepareImage(canvasEl);
+  runGeneration(canvasEl);
 });
