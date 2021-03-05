@@ -36,6 +36,17 @@ const prepareImage = () => {
   domtoimage
     .toPng(canvasEl)
     .then(function (dataUrl) {
+      // var img = new Image();
+      // img.src = dataUrl;
+      // document.body.appendChild(img);
+    })
+    .catch(function (error) {
+      console.error("oops, something went wrong!", error);
+    });
+
+  domtoimage
+    .toJpeg(canvasEl)
+    .then(function (dataUrl) {
       var img = new Image();
       img.src = dataUrl;
       document.body.appendChild(img);
@@ -57,6 +68,7 @@ const prepareImage = () => {
 const createImage = (dataUrl) => {
   var img = new Image();
   img.src = dataUrl;
+  img.classList.add("initial-height");
   mockupEl.appendChild(img);
 };
 
@@ -70,6 +82,7 @@ const loadMedia = (event) => {
     const url = event.target.result;
     createImage(url);
     imageInputEl.classList.add("hidden");
+    mockupEl.classList.remove("initial-width");
     mockupEl.classList.remove("initial-height");
   };
   reader.readAsDataURL(file);

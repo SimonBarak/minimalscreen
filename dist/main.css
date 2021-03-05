@@ -31203,9 +31203,12 @@ input[type="file"] {
   border-radius: 4vw;
   position: relative;
   overflow: auto;
-  width: 50vw;
   border: 1px solid transparent;
   box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.8);
+}
+
+.initial-width {
+  width: 50vw;
 }
 
 .initial-height {
