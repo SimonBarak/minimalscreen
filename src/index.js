@@ -11,28 +11,45 @@ const mockupEl = document.querySelector("#mockup");
 const canvasEl = document.querySelector("#canvas");
 const finalImageEl = document.querySelector("#finalImage");
 const createImageButton = document.querySelector("#create-image");
-const headlineEl = document.querySelector("#headline");
+const popUpEl = document.querySelector("#image-popUp");
+const mainEl = document.querySelector("main");
 
 const allmockupsEl = Array.from(
   document.getElementsByClassName("mobile-mockup")
 );
 
-// const prepareImage = () => {
-//   window.scroll({
-//     top: 0,
-//     left: 0,
-//   });
-//   domtoimage
-//     .toPng(canvasEl)
-//     .then(function (dataUrl) {
-//       var img = new Image();
-//       img.src = dataUrl;
-//       document.body.appendChild(img);
-//     })
-//     .catch(function (error) {
-//       console.error("oops, something went wrong!", error);
-//     });
-// };
+const removePopUp = () => {
+  document.body.classList.remove("active-popup");
+  popUpEl.classList.add("hidden");
+  popUpEl.innerHTML = "";
+  mainEl.removeEventListener("click", () => {});
+};
+
+const prepareImage = (canvasEl) => {
+  // window.scroll({
+  //   top: 0,
+  //   left: 0,
+  // });
+  domtoimage
+    .toPng(canvasEl)
+    .then(function (dataUrl) {
+      document.body.classList.add("active-popup");
+      popUpEl.classList.remove("hidden");
+      var img = new Image();
+      img.src = dataUrl;
+      popUpEl.appendChild(img);
+
+      console.log("now");
+
+      mainEl.addEventListener("click", () => {
+        console.log("now2");
+        removePopUp();
+      });
+    })
+    .catch(function (error) {
+      console.error("oops, something went wrong!", error);
+    });
+};
 
 // LOAD IMAGE FUNCTION
 const insertImage = (parrentEl, imageFile) => {
@@ -113,3 +130,8 @@ function dragElement(elmnt) {
 }
 
 dragElement(document.getElementById("draggable"));
+
+createImageButton.addEventListener("click", () => {
+  console.log(canvasEl);
+  prepareImage(canvasEl);
+});

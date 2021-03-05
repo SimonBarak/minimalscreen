@@ -5,13 +5,17 @@
 @tailwind utilities;
 
 :root {
-  --bg-color: rgb(12, 12, 12);
+  --bg-color: rgb(0, 0, 0);
 }
 
 body {
   /* background-color: var(--bg-color); */
   background: rgb(0, 0, 10);
   background: linear-gradient(0deg, rgba(1, 0, 20, 1) 0% rgba(0, 0, 50, 1) 50%);
+}
+
+.active-popup main {
+  filter: blur(10px);
 }
 
 .shadow-0 {
