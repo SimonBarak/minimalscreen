@@ -1,4 +1,7 @@
 import "./index.css";
+import html2canvas from "html2canvas";
+import * as htmlToImage from "html-to-image";
+
 import domtoimage from "dom-to-image";
 
 const imageInputEl = document.querySelector("#imageInput");
@@ -18,6 +21,7 @@ const allmockupsEl = Array.from(
 const removePopUp = () => {
   document.body.classList.remove("active-popup");
   popUpEl.classList.add("hidden");
+  popUpEl.innerHTML = "";
   mainEl.removeEventListener("click", () => {});
 };
 
@@ -27,7 +31,7 @@ const prepareImage = (canvasEl) => {
   //   left: 0,
   // });
   domtoimage
-    .toPng(canvasEl)
+    .toPng(canvasEl, { quality: 1 })
     .then(function (dataUrl) {
       document.body.classList.add("active-popup");
       popUpEl.classList.remove("hidden");
