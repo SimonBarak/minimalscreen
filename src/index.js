@@ -1,7 +1,4 @@
 import "./index.css";
-import html2canvas from "html2canvas";
-import * as htmlToImage from "html-to-image";
-
 import domtoimage from "dom-to-image";
 
 const imageInputEl = document.querySelector("#imageInput");
