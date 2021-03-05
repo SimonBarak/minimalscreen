@@ -47,6 +47,10 @@ const runGeneration = (canvasEl) => {
       console.log("okay now it should be fine");
       document.body.classList.add("active-popup");
       popUpEl.appendChild(img);
+
+      mainEl.addEventListener("click", () => {
+        removePopUp();
+      });
     });
   });
 
