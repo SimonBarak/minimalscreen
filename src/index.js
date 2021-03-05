@@ -36,17 +36,6 @@ const prepareImage = () => {
   domtoimage
     .toPng(canvasEl)
     .then(function (dataUrl) {
-      // var img = new Image();
-      // img.src = dataUrl;
-      // document.body.appendChild(img);
-    })
-    .catch(function (error) {
-      console.error("oops, something went wrong!", error);
-    });
-
-  domtoimage
-    .toJpeg(canvasEl)
-    .then(function (dataUrl) {
       var img = new Image();
       img.src = dataUrl;
       document.body.appendChild(img);
@@ -70,6 +59,7 @@ const createImage = (dataUrl) => {
   img.src = dataUrl;
   img.classList.add("initial-height");
   mockupEl.appendChild(img);
+  canvasEl.classList.remove("bg-blue-800");
 };
 
 // LOAD IMAGE FUNCTION
