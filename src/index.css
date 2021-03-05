@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-  --bg-color: rgb(0, 0, 0);
+  --bg-color: rgb(230, 202, 0);
 }
 
 body {
@@ -32,7 +32,6 @@ input[type="file"] {
 .squere-canvas {
   width: 100vw;
   height: 100vw;
-  padding: 5vw;
 }
 
 .mobile-mockup {
@@ -45,7 +44,7 @@ input[type="file"] {
 }
 
 .initial-width {
-  width: 50vw;
+  width: 45vw;
 }
 
 .initial-height {
@@ -64,6 +63,7 @@ input[type="file"] {
 }
 
 .mobile-mockup > div > img {
+  object-fit: cover;
   border-radius: 3vw;
 }
 

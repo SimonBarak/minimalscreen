@@ -213,7 +213,7 @@
 
     <link rel="stylesheet" href="./dist/main.css" />
   </head>
-  <body class="text-white">
+  <body class="">
     <div class="relative py-10 md:py-16 max-w-2xl m-auto">
       <h1
         id="headline"
@@ -227,46 +227,79 @@
         class="cursor-move h-8 w-8 right-0 bg-blue-400 rounded-full inline-block absolute top-0 opacity-0 hover:opacity-100"
       ></span>
     </div>
-    <section id="canvas" class="squere-canvas relative flex bg-blue-800">
+    <section
+      id="canvas"
+      class="squere-canvas relative flex border-t border-gray-800 border-white"
+    >
       <div
         id="mockup"
         class="mobile-mockup m-auto initial-height initial-width"
       >
-        <div class="shadow"></div>
+        <div class="shadow imageWrapper"></div>
+        <label id="inputLabel" class="cta p-4 font-medium w-full">
+          <input
+            id="imageInput"
+            class="imageInput"
+            type="file"
+            name="filefield"
+          />
+          Upload image
+        </label>
       </div>
-
-      <label id="inputLabel" class="cta p-4 font-medium text-white">
-        <input
-          id="imageInput"
-          class="imageInput"
-          type="file"
-          name="filefield"
-        />
-        Upload image
-      </label>
     </section>
-    <section id="image-popUp ">
+
+    <section
+      id="canvas"
+      class="squere-canvas relative flex justify-between items-center border-t border-gray-800 border-white px-2"
+    >
+      <div class="relative">
+        <div
+          id="mockup"
+          class="mobile-mockup m-auto initial-height initial-width"
+        >
+          <div class="shadow imageWrapper"></div>
+
+          <label id="inputLabel" class="cta font-medium w-full text-center">
+            <input
+              id="imageInput"
+              class="imageInput"
+              type="file"
+              name="filefield"
+            />
+            Upload image
+          </label>
+        </div>
+      </div>
+      <div class="relative">
+        <div
+          id="mockup"
+          class="mobile-mockup m-auto initial-height initial-width"
+        >
+          <div class="shadow imageWrapper"></div>
+          <label id="inputLabel" class="cta font-medium w-full text-center">
+            <input
+              id="imageInput"
+              class="imageInput"
+              type="file"
+              name="filefield"
+            />
+            Upload image
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section id="image-popUp ">
       <img id="finalImage" src="" alt="" />
-    </section>
+    </section> -->
 
-    <div class="p-4">
+    <!-- <div class="p-4">
       <button
         id="create-image"
-        class="cursor-pointer block text-black w-full rounded-xl text-center py-5 px-6 leading-4 text-xl text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out"
+        class="cursor-pointer block text-black w-full rounded-xl text-center py-5 px-6 leading-4 text-xl  bg-blue-500 hover:bg-blue-700 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out"
       >
         Create mockup
       </button>
-    </div>
-
-    <!-- <div class="steps m-auto py-10">
-      <p class="mb-5">Simple steps to make mockup</p>
-
-      <ol class="list-decimal text-4xl leading-relaxed">
-        <li>Make screenshot of your website</li>
-        <li>Upload video into the broswer</li>
-        <li>Customize mockup background</li>
-        <li>Make screenshot of the mockup</li>
-      </ol>
     </div> -->
 
     <script src="./dist/bundle.js"></script>

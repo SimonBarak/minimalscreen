@@ -13,77 +13,59 @@ const finalImageEl = document.querySelector("#finalImage");
 const createImageButton = document.querySelector("#create-image");
 const headlineEl = document.querySelector("#headline");
 
-const prepareImage = () => {
-  window.scroll({
-    top: 0,
-    left: 0,
-  });
+const allmockupsEl = Array.from(
+  document.getElementsByClassName("mobile-mockup")
+);
 
-  console.log("hi");
-
-  // htmlToImage.toJpeg(canvasEl).then(function (dataUrl) {
-  //   console.log(dataUrl);
-
-  //   var img = new Image();
-  //   img.src = dataUrl;
-  //   document.body.appendChild(img);
-  //   // var link = document.createElement("a");
-  //   // link.download = "my-image-name.jpeg";
-  //   // link.href = dataUrl;
-  //   // link.click();
-  // });
-
-  domtoimage
-    .toPng(canvasEl)
-    .then(function (dataUrl) {
-      var img = new Image();
-      img.src = dataUrl;
-      document.body.appendChild(img);
-    })
-    .catch(function (error) {
-      console.error("oops, something went wrong!", error);
-    });
-
-  // html2canvas(canvasEl).then((canvas) => {
-  //   var dataURL = canvas.toDataURL("image/jpeg");
-  //   console.log(dataURL);
-
-  //   // buttonEl.href = dataURL;
-
-  //   finalImageEl.src = dataURL;
-  // });
-};
-
-const createImage = (dataUrl) => {
-  var img = new Image();
-  img.src = dataUrl;
-  img.classList.add("initial-height");
-  mockupEl.appendChild(img);
-  canvasEl.classList.remove("bg-blue-800");
-};
+// const prepareImage = () => {
+//   window.scroll({
+//     top: 0,
+//     left: 0,
+//   });
+//   domtoimage
+//     .toPng(canvasEl)
+//     .then(function (dataUrl) {
+//       var img = new Image();
+//       img.src = dataUrl;
+//       document.body.appendChild(img);
+//     })
+//     .catch(function (error) {
+//       console.error("oops, something went wrong!", error);
+//     });
+// };
 
 // LOAD IMAGE FUNCTION
-const loadMedia = (event) => {
-  const { files } = event.target;
-  const file = files[0];
-  inputLabelEl.classList.add("hidden");
+const insertImage = (parrentEl, imageFile) => {
   var reader = new FileReader();
+
   reader.onload = (event) => {
-    const url = event.target.result;
-    createImage(url);
-    imageInputEl.classList.add("hidden");
-    mockupEl.classList.remove("initial-width");
-    mockupEl.classList.remove("initial-height");
+    var img = new Image();
+    const dataUrl = event.target.result;
+
+    img.src = dataUrl;
+    img.classList.add("initial-height");
+
+    console.log(img);
+    parrentEl.appendChild(img);
+
+    // imageInputEl.classList.add("hidden");
+    // mockupEl.classList.remove("initial-width");
+    // mockupEl.classList.remove("initial-height");
   };
-  reader.readAsDataURL(file);
+  reader.readAsDataURL(imageFile);
 };
 
 // EventListeners
 
-createImageButton.addEventListener("click", () => {
-  prepareImage();
-});
+allmockupsEl.forEach((parrentEl) => {
+  const labelEl = parrentEl.querySelector(".cta");
+  const inputEl = parrentEl.querySelector("input");
+  const imageWrapperEl = parrentEl.querySelector(".imageWrapper");
 
-imageInputEl.addEventListener("change", (event) => {
-  loadMedia(event);
+  inputEl.addEventListener("change", (event) => {
+    const { files } = event.target;
+    const imageFile = files[0];
+    labelEl.classList.add("hidden");
+    insertImage(imageWrapperEl, imageFile);
+  });
 });
