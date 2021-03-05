@@ -31168,7 +31168,7 @@ video {
 }
 
 :root {
-  --bg-color: rgb(3, 0, 21);
+  --bg-color: rgb(0, 0, 0);
 }
 
 body {
@@ -31176,7 +31176,6 @@ body {
 }
 
 .cta {
-  color: var(--bg-color);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -31197,14 +31196,14 @@ input[type="file"] {
   width: 100vw;
   height: 100vw;
   padding: 5vw;
-  background-color: blue;
+  background-color: rgb(0, 0, 169);
 }
 
 .mobile-mockup {
   border-radius: 4vw;
   position: relative;
   overflow: auto;
-  width: 45vw;
+  width: 50vw;
   border: 1px solid transparent;
   box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.8);
 }
@@ -31237,7 +31236,7 @@ input[type="file"] {
   left: 2px;
   right: 2px;
   border-radius: 3vw;
-  box-shadow: inset 0 0 5px 5px rgba(150, 150, 150, 0.5);
+  box-shadow: inset 0 0 5px 5px rgba(200, 200, 200, 0.2);
 }
 
 .steps {
