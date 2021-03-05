@@ -18,7 +18,6 @@ const allmockupsEl = Array.from(
 const removePopUp = () => {
   document.body.classList.remove("active-popup");
   popUpEl.classList.add("hidden");
-  popUpEl.innerHTML = "";
   mainEl.removeEventListener("click", () => {});
 };
 
