@@ -213,18 +213,18 @@
 
     <link rel="stylesheet" href="./dist/main.css" />
   </head>
-  <body class="">
+  <body class="text-white">
     <div class="relative py-10 md:py-16 max-w-2xl m-auto h-48">
       <div class="absolute" id="draggable">
         <h1
           class="text-center px-8 text-4xl md:text-6xl lg:text-7xl font-medium focus:outline-none focus:border-none focus:shadow-outline-none"
           contenteditable="true"
         >
-          Minimal way to create mockup
+          Minimal way to create mobile mockup
         </h1>
         <span
           id="draggable-handler"
-          class="cursor-move h-8 w-8 right-0 bg-blue-400 rounded-full inline-block absolute top-0 opacity-25 hover:opacity-100"
+          class="cursor-move h-8 w-8 right-0 bg-blue-400 rounded-full inline-block absolute top-0 opacity-10 hover:opacity-100"
         ></span>
       </div>
     </div>
@@ -232,8 +232,14 @@
       id="canvas"
       class="squere-canvas relative flex border-t border-gray-800 border-white"
     >
-      <div id="mockup" class="mobile-mockup m-auto initial-height">
-        <div class="shadow imageWrapper initial-width"></div>
+      <div id="mockup" class="mobile-mockup m-auto">
+        <div class="shadow-2">
+          <div class="shadow-1">
+            <div
+              class="shadow-0 imageWrapper initial-height initial-width"
+            ></div>
+          </div>
+        </div>
         <label id="inputLabel" class="cta p-4 font-medium w-full text-center">
           <input
             id="imageInput"
@@ -252,7 +258,13 @@
     >
       <div class="relative">
         <div id="mockup" class="mobile-mockup m-auto initial-height">
-          <div class="shadow imageWrapper initial-width"></div>
+          <div class="shadow-2">
+            <div class="shadow-1">
+              <div
+                class="shadow-0 imageWrapper initial-height initial-width"
+              ></div>
+            </div>
+          </div>
 
           <label id="inputLabel" class="cta font-medium w-full text-center">
             <input
@@ -267,7 +279,13 @@
       </div>
       <div class="relative">
         <div id="mockup" class="mobile-mockup m-auto initial-height">
-          <div class="shadow imageWrapper initial-width"></div>
+          <div class="shadow-2">
+            <div class="shadow-1">
+              <div
+                class="shadow-0 imageWrapper initial-height initial-width"
+              ></div>
+            </div>
+          </div>
           <label id="inputLabel" class="cta font-medium w-full text-center">
             <input
               id="imageInput"
