@@ -5,13 +5,19 @@
 @tailwind utilities;
 
 :root {
-  --bg-color: rgb(0, 0, 0);
+  --bg-color: rgb(0, 34, 255);
+}
+
+#picker {
+  max-width: 320px;
+}
+
+.btn-big {
+  max-width: 320px;
 }
 
 body {
-  /* background-color: var(--bg-color); */
-  background: rgb(0, 0, 10);
-  background: linear-gradient(0deg, rgba(1, 0, 20, 1) 0% rgba(0, 0, 50, 1) 50%);
+  background-color: var(--bg-color);
 }
 
 .active-popup main {
@@ -27,15 +33,18 @@ body {
 }
 
 .shadow-0 {
-  box-shadow: inset 0 1px 40px 0px rgb(200 200 200 / 10%);
+  box-shadow: inset 0 60px 100px -48px rgb(200 200 200 / 20%);
+  border-radius: 1.9em;
 }
 
 .shadow-1 {
   box-shadow: inset 0 4px 18px 4px rgb(200 200 200 / 10%);
+  border-radius: 1.9em;
 }
 
 .shadow-2 {
-  box-shadow: inset 0 60px 100px -48px rgb(200 200 200 / 10%);
+  box-shadow: inset 1px 1px 10px 3px rgb(200 200 200 / 20%);
+  border-radius: 1.9em;
 }
 
 .cta {
@@ -57,54 +66,46 @@ input[type="file"] {
 }
 
 .squere-canvas {
+  margin: 0 auto;
   width: 100vw;
+  max-width: 500px;
   height: 100vw;
+  max-height: 500px;
+  background-color: var(--bg-color);
 }
 
 .mobile-mockup {
-  border-radius: 4vw;
+  border-radius: 1.6em;
+  padding: 0.2em;
   position: relative;
-  overflow: auto;
-
+  background-color: black;
   border: 1px solid transparent;
   box-shadow: 0 0 20px -3px rgba(0, 0, 0, 1);
 }
 
 .initial-width {
-  width: 45vw;
+  width: 45%;
 }
 
 .initial-height {
-  height: 90vw;
+  height: 90%;
 }
 
-.mobile-mockup > div {
-  border-radius: 3vw;
+.mobile-mockup div {
+  border-radius: 1.7em;
   overflow: hidden;
   height: 100%;
   z-index: 0;
 }
 
-.mobile-mockup > div > video {
-  border-radius: 3vw;
+/* .mobile-mockup > div > video {
+  border-radius: 1.7em;
 }
 
 .mobile-mockup > div > img {
   object-fit: cover;
-  border-radius: 3vw;
-}
-
-.mobile-mockup > div::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-  top: 2px;
-  bottom: 2px;
-  left: 2px;
-  right: 2px;
-  border-radius: 3vw;
-  box-shadow: inset 0 0 5px 5px rgba(200, 200, 200, 0.2);
-}
+  border-radius: 1.7em;
+} */
 
 .steps {
   max-width: 520px;

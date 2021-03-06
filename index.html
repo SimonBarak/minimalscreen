@@ -213,11 +213,11 @@
 
     <link rel="stylesheet" href="./dist/main.css" />
   </head>
-  <body class="text-white">
+  <body class="">
     <main>
-      <div class="relative py-10 md:py-16 max-w-2xl m-auto">
+      <section class="relative py-10 md:py-16 max-w-2xl m-auto">
         <h1
-          class="text-center px-2 text-4xl md:text-6xl lg:text-7xl font-medium focus:outline-none focus:border-none focus:shadow-outline-none"
+          class="text-center px-2 text-4xl md:text-6xl font-medium focus:outline-none focus:border-none focus:shadow-outline-none"
           contenteditable="true"
         >
           Minimal way to create mobile mockup
@@ -226,19 +226,17 @@
           id="draggable-handler"
           class="cursor-move h-8 w-8 right-0 bg-blue-400 rounded-full inline-block absolute top-0 opacity-10 hover:opacity-100"
         ></span>
-      </div>
+      </section>
 
-      <section
-        id="canvas"
-        class="squere-canvas relative flex justify-evenly items-center border-t border-b border-gray-800 bg-gray-900"
-      >
-        <div class="relative">
-          <div id="mockup" class="mobile-mockup m-auto initial-height">
-            <div class="shadow-2">
+      <section class="mb-10 md:mb-16">
+        <div id="canvas" class="squere-canvas flex justify-evenly items-center">
+          <div
+            id="mockup"
+            class="mobile-mockup m-auto initial-height initial-width"
+          >
+            <div class="shadow-0">
               <div class="shadow-1">
-                <div
-                  class="shadow-0 imageWrapper initial-height initial-width"
-                ></div>
+                <div class="shadow-2 imageWrapper"></div>
               </div>
             </div>
 
@@ -252,14 +250,14 @@
               Upload image
             </label>
           </div>
-        </div>
-        <div class="relative">
-          <div id="mockup" class="mobile-mockup m-auto initial-height">
-            <div class="shadow-2">
+
+          <div
+            id="mockup"
+            class="mobile-mockup m-auto initial-height initial-width"
+          >
+            <div class="shadow-0">
               <div class="shadow-1">
-                <div
-                  class="shadow-0 imageWrapper initial-height initial-width"
-                ></div>
+                <div class="shadow-2 imageWrapper"></div>
               </div>
             </div>
             <label id="inputLabel" class="cta font-medium w-full text-center">
@@ -299,16 +297,20 @@
       </div>
     </section> -->
 
-      <div class="p-4">
+      <section class="p-4 mb-10 md:mb-16">
         <button
           id="create-image"
-          class="cursor-pointer block text-black w-full rounded-xl text-center py-5 px-6 leading-4 text-xl bg-blue-500 hover:bg-blue-700 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out"
+          class="btn-big m-auto cursor-pointer block text-black w-full rounded-xl text-center py-5 px-6 leading-4 text-xl bg-blue-700 hover:bg-blue-700 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out shadow-xl"
         >
           Create mockup
         </button>
-      </div>
+      </section>
 
-      <div class="steps m-auto py-10 px-4">
+      <section id="color-popUp" class="mb-10 md:mb-16">
+        <div id="picker" class="m-auto"></div>
+      </section>
+
+      <section class="steps m-auto py-10 px-4 mb-10 md:mb-16">
         <p class="mb-5">Simple steps to make mockup</p>
 
         <ol class="list-decimal text-2xl md:text-2xl leading-relaxed pl-4">
@@ -317,12 +319,12 @@
           <li>Customize mockup background</li>
           <li>Make screenshot of the mockup</li>
         </ol>
-      </div>
+      </section>
     </main>
 
     <div
       id="image-popUp"
-      class="absolute top-0 image-popUp m-1 rounded-xl overflow-hidden"
+      class="absolute top-0 image-popUp m-1 rounded-xl overflow-hidden shadow-xl"
     ></div>
 
     <script src="./dist/bundle.js"></script>

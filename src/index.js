@@ -1,5 +1,6 @@
 import "./index.css";
 import domtoimage from "dom-to-image";
+import iro from "@jaames/iro";
 
 const imageInputEl = document.querySelector("#imageInput");
 const screenShotEl = document.querySelector("#screenShot");
@@ -126,6 +127,24 @@ allmockupsEl.forEach((parrentEl) => {
     insertImage(imageWrapperEl, imageFile);
   });
 });
+
+// COLOR PICKER
+var colorPicker = new iro.ColorPicker("#picker", {
+  // Set the size of the color picker
+  width: 320,
+  // Set the initial color to pure red
+  color: "#0d0dff",
+});
+
+colorPicker.on("color:change", function (color) {
+  // log the current color as a HEX string
+
+  const root = document.querySelector(":root");
+  root.style.setProperty("--bg-color", color.hexString);
+
+  console.log(color.hexString);
+});
+//
 
 // function dragElement(elmnt) {
 //   var pos1 = 0,
