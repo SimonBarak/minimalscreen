@@ -95,7 +95,7 @@ const prepareImage = (canvasEl) => {
 };
 
 // LOAD IMAGE FUNCTION
-const insertImage = (parrentEl, imageFile) => {
+const insertImage = (parrentEl, imageWrapperEl, imageFile) => {
   var reader = new FileReader();
 
   reader.onload = (event) => {
@@ -103,10 +103,8 @@ const insertImage = (parrentEl, imageFile) => {
     const dataUrl = event.target.result;
 
     img.src = dataUrl;
-    img.classList.add("initial-height");
 
-    console.log(img);
-    parrentEl.appendChild(img);
+    imageWrapperEl.appendChild(img);
     parrentEl.classList.remove("initial-width");
   };
   reader.readAsDataURL(imageFile);
@@ -124,7 +122,7 @@ allmockupsEl.forEach((parrentEl) => {
     const imageFile = files[0];
     labelEl.classList.add("hidden");
 
-    insertImage(imageWrapperEl, imageFile);
+    insertImage(parrentEl, imageWrapperEl, imageFile);
   });
 });
 
@@ -133,7 +131,7 @@ var colorPicker = new iro.ColorPicker("#picker", {
   // Set the size of the color picker
   width: 320,
   // Set the initial color to pure red
-  color: "#0d0dff",
+  color: "#ffc800",
 });
 
 colorPicker.on("color:change", function (color) {
