@@ -228,7 +228,7 @@
         ></span>
       </section>
 
-      <section class="mb-10 md:mb-16">
+      <section class="mb-10 md:mb-14">
         <div id="canvas" class="squere-canvas flex justify-evenly items-center">
           <div
             id="mockup"
@@ -240,41 +240,77 @@
               </div>
             </div>
 
-            <label
-              id="inputLabel"
-              class="cta text-blue-700 font-medium w-full text-center"
+            <div
+              class="controlers text-blue-700 font-medium text-center w-full p-4"
             >
-              <input
-                id="imageInput"
-                class="imageInput"
-                type="file"
-                name="filefield"
-              />
-              Upload image
-            </label>
+              <label
+                id="inputLabel"
+                class="block cta-image cta-opacity p-2 rounded-xl mb-2"
+              >
+                <input
+                  id="input-image"
+                  class="input-image"
+                  type="file"
+                  name="filefield"
+                />
+
+                Upload image
+              </label>
+
+              <label
+                id="inputLabel"
+                class="block cta-video cta-opacity p-2 rounded-xl"
+              >
+                <input
+                  id="input-video"
+                  class="input-video"
+                  type="file"
+                  name="filefield"
+                />
+                Upload video
+              </label>
+            </div>
           </div>
 
           <div
-            id="mockup"
-            class="mobile-mockup m-auto initial-height initial-width"
+            id="mockup-second"
+            class="mobile-mockup m-auto initial-height initial-width hidden"
           >
             <div class="shadow-0">
               <div class="shadow-1">
                 <div class="shadow-2 imageWrapper"></div>
               </div>
             </div>
-            <label
-              id="inputLabel"
-              class="cta text-blue-700 font-medium w-full text-center"
+            <div
+              class="controlers text-blue-700 font-medium text-center w-full p-4"
             >
-              <input
-                id="imageInput"
-                class="imageInput"
-                type="file"
-                name="filefield"
-              />
-              Upload image
-            </label>
+              <label
+                id="inputLabel"
+                class="block cta-image cta-opacity p-2 rounded-xl mb-2"
+              >
+                <input
+                  id="input-image"
+                  class="input-image"
+                  type="file"
+                  name="filefield"
+                />
+
+                Upload image
+              </label>
+
+              <label
+                id="inputLabel"
+                class="block cta-video cta-opacity p-2 rounded-xl"
+              >
+                <input
+                  id="input-video"
+                  class="input-video"
+                  type="file"
+                  name="filefield"
+                />
+                Upload video
+              </label>
+            </div>
           </div>
         </div>
       </section>
@@ -291,7 +327,7 @@
             ></div>
           </div>
         </div>
-        <label id="inputLabel" class="cta text-blue-700 p-4 font-medium w-full text-center">
+        <label id="inputLabel" class="controlers text-blue-700 p-4 font-medium w-full text-center">
           <input
             id="imageInput"
             class="imageInput"
@@ -303,20 +339,27 @@
       </div>
     </section> -->
 
-      <section class="p-4 mb-10 md:mb-16">
+      <section class="p-4 mb-10 md:mb-14 text-center">
+        <button
+          id="add-screen"
+          class="mb-4 btn-big m-auto flex justify-center cursor-pointer block w-full rounded-xl py-5 px-6 text-xl leading-4 cta-opacity focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out shadow-xl"
+        >
+          <span>Add screen</span>
+        </button>
         <button
           id="create-image"
-          class="btn-big m-auto cursor-pointer block text-black w-full rounded-xl text-center py-5 px-6 leading-4 text-xl bg-blue-700 hover:bg-blue-700 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out shadow-xl"
+          class="btn-big m-auto flex justify-center cursor-pointer block w-full rounded-xl py-5 px-6 leading-4 text-xl bg-blue-700 hover:bg-blue-700 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out shadow-xl"
         >
-          Create mockup
+          <span>Create image </span>
+          <span class="text-xs"> (beta)</span>
         </button>
       </section>
 
-      <section id="color-popUp" class="mb-10 md:mb-16">
+      <section id="color-popUp" class="mb-10 md:mb-14">
         <div id="picker" class="m-auto"></div>
       </section>
 
-      <section class="steps m-auto py-10 px-4 mb-10 md:mb-16">
+      <section class="steps m-auto py-10 px-4 mb-10 md:mb-14">
         <p class="mb-5">Simple steps to make mockup</p>
 
         <ol class="list-decimal text-2xl md:text-2xl leading-relaxed pl-4">

@@ -594,6 +594,10 @@ video {
   align-items: center;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .justify-evenly {
   justify-content: space-evenly;
 }
@@ -604,6 +608,11 @@ video {
 
 .h-8 {
   height: 2rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .text-xl {
@@ -641,6 +650,14 @@ video {
   margin: auto;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .mb-5 {
   margin-bottom: 1.25rem;
 }
@@ -668,6 +685,10 @@ video {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.p-2 {
+  padding: 0.5rem;
 }
 
 .p-4 {
@@ -701,6 +722,10 @@ video {
 
 .pl-4 {
   padding-left: 1rem;
+}
+
+.pointer-events-none {
+  pointer-events: none;
 }
 
 .absolute {
@@ -739,11 +764,6 @@ video {
 
 .text-center {
   text-align: center;
-}
-
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgba(0, 0, 0, var(--tw-text-opacity));
 }
 
 .text-blue-700 {
@@ -884,7 +904,7 @@ body {
   border-radius: 1.9em;
 }
 
-.cta {
+.controlers {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -928,7 +948,13 @@ input[type="file"] {
   height: 90%;
 }
 
-.mobile-mockup div {
+.cta-opacity {
+  background-color: rgba(41, 41, 41, 0.1);
+}
+
+.shadow-0,
+.shadow-1,
+.shadow-2 {
   border-radius: 1.7em;
   overflow: hidden;
   height: 100%;
@@ -941,6 +967,12 @@ input[type="file"] {
 
 .mobile-mockup img {
   height: 100%;
+  width: auto;
+}
+
+.mobile-mockup video {
+  height: 100%;
+  width: auto;
 }
 
 .steps {
@@ -987,8 +1019,8 @@ input[type="file"] {
     line-height: 1;
   }
 
-  .md\:mb-16 {
-    margin-bottom: 4rem;
+  .md\:mb-14 {
+    margin-bottom: 3.5rem;
   }
 
   .md\:py-16 {

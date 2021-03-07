@@ -9,8 +9,16 @@ const mockupEl = document.querySelector("#mockup");
 const canvasEl = document.querySelector("#canvas");
 const finalImageEl = document.querySelector("#finalImage");
 const createImageButton = document.querySelector("#create-image");
+const addScreenEl = document.querySelector("#add-screen");
 const popUpEl = document.querySelector("#image-popUp");
 const mainEl = document.querySelector("main");
+
+// SECOND MOCKUP
+addScreenEl.addEventListener("click", () => {
+  const mockupEl = document.querySelector("#mockup-second");
+  mockupEl.classList.remove("hidden");
+  addScreenEl.classList.add("hidden");
+});
 
 const allmockupsEl = Array.from(
   document.getElementsByClassName("mobile-mockup")
@@ -110,19 +118,57 @@ const insertImage = (parrentEl, imageWrapperEl, imageFile) => {
   reader.readAsDataURL(imageFile);
 };
 
-// EventListeners
+// LOAD MP4 FUNCTION
+const insertVideo = (parrentEl, imageWrapperEl, imageFile) => {
+  var reader = new FileReader();
 
+  reader.onload = (event) => {
+    const dataUrl = event.target.result;
+
+    let newVideo = document.createElement("video");
+    newVideo.defaultMuted = true;
+    newVideo.setAttribute("type", "video/mp4");
+    newVideo.setAttribute("src", dataUrl);
+    newVideo.load();
+    newVideo.play();
+    newVideo.setAttribute("loop", "true");
+
+    imageWrapperEl.appendChild(newVideo);
+    console.log("NOW2");
+    parrentEl.classList.remove("initial-width");
+
+    createImageButton.classList.add("opacity-10");
+    createImageButton.classList.add("pointer-events-none");
+    const warningDiv = document.createElement("div");
+    warningDiv.innerHTML = "Sorry, video rendering is not a ready jet";
+    createImageButton.parentElement.appendChild(warningDiv);
+  };
+  reader.readAsDataURL(imageFile);
+};
+
+// Initialize mockups
 allmockupsEl.forEach((parrentEl) => {
-  const labelEl = parrentEl.querySelector(".cta");
-  const inputEl = parrentEl.querySelector("input");
+  const controlersEl = parrentEl.querySelector(".controlers");
+  const inputImageEl = parrentEl.querySelector(".input-image");
+  const inputVideoEl = parrentEl.querySelector(".input-video");
   const imageWrapperEl = parrentEl.querySelector(".imageWrapper");
 
-  inputEl.addEventListener("change", (event) => {
+  console.log(inputImageEl);
+
+  inputImageEl.addEventListener("change", (event) => {
     const { files } = event.target;
     const imageFile = files[0];
-    labelEl.classList.add("hidden");
-
+    controlersEl.classList.add("hidden");
+    console.log(files);
     insertImage(parrentEl, imageWrapperEl, imageFile);
+  });
+
+  inputVideoEl.addEventListener("change", (event) => {
+    const { files } = event.target;
+    const imageFile = files[0];
+    controlersEl.classList.add("hidden");
+    console.log(files);
+    insertVideo(parrentEl, imageWrapperEl, imageFile);
   });
 });
 
