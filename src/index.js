@@ -47,10 +47,7 @@ function generateImage(canvasEl) {
 
 const runGeneration = (canvasEl) => {
   generateImage(canvasEl).then(() => {
-    console.log("first time");
-
     generateImage(canvasEl).then((img) => {
-      console.log("okay now it should be fine");
       document.body.classList.add("active-popup");
       popUpEl.appendChild(img);
 
@@ -90,10 +87,7 @@ const prepareImage = (canvasEl) => {
       img.src = dataUrl;
       popUpEl.appendChild(img);
 
-      console.log("now");
-
       mainEl.addEventListener("click", () => {
-        console.log("now2");
         removePopUp();
       });
     })
@@ -135,7 +129,6 @@ const insertVideo = (parrentEl, imageWrapperEl, imageFile) => {
     newVideo.setAttribute("loop", "true");
 
     imageWrapperEl.appendChild(newVideo);
-    console.log("NOW2");
     parrentEl.classList.remove("initial-width");
 
     createImageButton.classList.add("opacity-10");
@@ -160,7 +153,6 @@ allmockupsEl.forEach((parrentEl) => {
     const { files } = event.target;
     const imageFile = files[0];
     controlersEl.classList.add("hidden");
-    console.log(files);
     insertImage(parrentEl, parrentEl, imageFile);
   });
 
@@ -168,7 +160,6 @@ allmockupsEl.forEach((parrentEl) => {
     const { files } = event.target;
     const imageFile = files[0];
     controlersEl.classList.add("hidden");
-    console.log(files);
     insertVideo(parrentEl, parrentEl, imageFile);
   });
 });
@@ -186,8 +177,6 @@ colorPicker.on("color:change", function (color) {
 
   const root = document.querySelector(":root");
   root.style.setProperty("--bg-color", color.hexString);
-
-  console.log(color.hexString);
 });
 //
 
