@@ -129,6 +129,7 @@ const insertVideo = (parrentEl, imageWrapperEl, imageFile) => {
     newVideo.defaultMuted = true;
     newVideo.setAttribute("type", "video/mp4");
     newVideo.setAttribute("src", dataUrl);
+    newVideo.setAttribute("controls", true);
     newVideo.load();
     newVideo.play();
     newVideo.setAttribute("loop", "true");
@@ -151,7 +152,7 @@ allmockupsEl.forEach((parrentEl) => {
   const controlersEl = parrentEl.querySelector(".controlers");
   const inputImageEl = parrentEl.querySelector(".input-image");
   const inputVideoEl = parrentEl.querySelector(".input-video");
-  const imageWrapperEl = parrentEl.querySelector(".imageWrapper");
+  //const imageWrapperEl = parrentEl.querySelector(".imageWrapper");
 
   console.log(inputImageEl);
 
@@ -160,7 +161,7 @@ allmockupsEl.forEach((parrentEl) => {
     const imageFile = files[0];
     controlersEl.classList.add("hidden");
     console.log(files);
-    insertImage(parrentEl, imageWrapperEl, imageFile);
+    insertImage(parrentEl, parrentEl, imageFile);
   });
 
   inputVideoEl.addEventListener("change", (event) => {
@@ -168,7 +169,7 @@ allmockupsEl.forEach((parrentEl) => {
     const imageFile = files[0];
     controlersEl.classList.add("hidden");
     console.log(files);
-    insertVideo(parrentEl, imageWrapperEl, imageFile);
+    insertVideo(parrentEl, parrentEl, imageFile);
   });
 });
 

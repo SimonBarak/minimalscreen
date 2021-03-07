@@ -35,6 +35,11 @@ body {
 }
 
 .shadow-0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   box-shadow: inset 0 60px 100px -48px rgb(200 200 200 / 20%);
   border-radius: 1.9em;
 }
@@ -77,6 +82,8 @@ input[type="file"] {
 }
 
 .mobile-mockup {
+  position: relative;
+  overflow: hidden;
   border-radius: 1.6em;
   padding: 0.2em;
   position: relative;
@@ -112,11 +119,13 @@ input[type="file"] {
 
 .mobile-mockup img {
   height: 100%;
+  border-radius: 1.6em;
   width: auto;
 }
 
 .mobile-mockup video {
   height: 100%;
+  border-radius: 1.6em;
   width: auto;
 }
 
