@@ -665,6 +665,10 @@ video {
   margin-bottom: 2.5rem;
 }
 
+.max-w-2xl {
+  max-width: 42rem;
+}
+
 .opacity-10 {
   opacity: 0.1;
 }
