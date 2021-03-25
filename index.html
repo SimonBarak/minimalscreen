@@ -217,7 +217,7 @@
     <main>
       <section class="relative py-10 md:py-16 max-w-2xl m-auto">
         <h1
-          class="text-center px-2 text-4xl md:text-6xl font-medium focus:outline-none focus:border-none focus:shadow-outline-none"
+          class="text-center px-2 text-4xl ms:text-5xl md:text-6xl font-medium focus:outline-none focus:border-none focus:shadow-outline-none"
           contenteditable="true"
         >
           Minimal way to create mobile mockup
@@ -229,17 +229,20 @@
       </section>
 
       <section class="mb-10 md:mb-14">
-        <div id="canvas" class="squere-canvas flex justify-evenly items-center">
+        <div
+          id="canvas"
+          class="squere-canvas flex justify-evenly items-center m-auto"
+        >
           <div
             id="mockup"
-            class="mobile-mockup m-auto initial-height imageWrapper initial-width"
+            class="perspective device-shadow mobile-mockup m-auto initial-height imageWrapper initial-width"
           >
             <div
               class="controlers text-blue-700 font-medium text-center w-full p-4"
             >
               <label
                 id="inputLabel"
-                class="block cta-image cta-opacity p-2 py-4 rounded-xl mb-2"
+                class="block cta-image cta-opacity p-2 py-4 rounded-xl mb-2 cursor-pointer"
               >
                 <input
                   id="input-image"
@@ -252,47 +255,7 @@
 
               <label
                 id="inputLabel"
-                class="block cta-video cta-opacity p-2 py-4 rounded-xl"
-              >
-                <input
-                  id="input-video"
-                  class="input-video"
-                  type="file"
-                  name="filefield"
-                />
-
-                <div class="flex justify-center">
-                  <div>Add video</div>
-                  <div class="text-xs ml-1">beta</div>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          <div
-            id="mockup-second"
-            class="mobile-mockup m-auto initial-height initial-width imageWrapper hidden"
-          >
-            <div
-              class="controlers text-blue-700 font-medium text-center w-full p-2"
-            >
-              <label
-                id="inputLabel"
-                class="block cta-image cta-opacity p-2 rounded-xl mb-2"
-              >
-                <input
-                  id="input-image"
-                  class="input-image"
-                  type="file"
-                  name="filefield"
-                />
-
-                Add image
-              </label>
-
-              <label
-                id="inputLabel"
-                class="block cta-video cta-opacity p-2 py-4 rounded-xl"
+                class="block cta-video cta-opacity p-2 py-4 rounded-xl cursor-pointer"
               >
                 <input
                   id="input-video"
@@ -336,15 +299,15 @@
     </section> -->
 
       <section class="p-4 mb-10 md:mb-14 text-center">
-        <button
+        <!-- <button
           id="add-screen"
-          class="mb-4 btn-big m-auto flex justify-center cursor-pointer block w-full rounded-xl py-5 px-6 text-xl leading-4 cta-opacity focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out shadow-xl"
+          class="mb-4 btn-big m-auto justify-center cursor-pointer flex w-full rounded-xl py-5 px-6 text-xl leading-4 cta-opacity focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out shadow-xl"
         >
           <span>Add screen</span>
-        </button>
+        </button> -->
         <button
           id="create-image"
-          class="btn-big m-auto flex justify-center cursor-pointer block w-full rounded-xl py-5 px-6 leading-4 text-xl bg-blue-700 hover:bg-blue-700 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out shadow-xl"
+          class="btn-big m-auto justify-center cursor-pointer flex w-full rounded-xl py-5 px-6 leading-4 text-xl bg-blue-700 hover:bg-blue-700 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out shadow-xl"
         >
           <span>Create image </span>
           <span class="text-xs ml-1">beta</span>
@@ -368,9 +331,16 @@
     </main>
 
     <div
-      id="image-popUp"
-      class="absolute top-0 image-popUp m-1 rounded-xl overflow-hidden shadow-xl"
-    ></div>
+      id="popUp"
+      class="absolute top-0 left-0 right-0 bottom-0 image-popUp cursor-pointer"
+    >
+      <img
+        id="popUp-image"
+        class="rounded-xl overflow-hidden shadow-xl m-auto mt-3"
+        src=""
+        alt=""
+      />
+    </div>
 
     <script src="./dist/bundle.js"></script>
   </body>

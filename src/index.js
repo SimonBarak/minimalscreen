@@ -9,35 +9,28 @@ const mockupEl = document.querySelector("#mockup");
 const canvasEl = document.querySelector("#canvas");
 const finalImageEl = document.querySelector("#finalImage");
 const createImageButton = document.querySelector("#create-image");
-const addScreenEl = document.querySelector("#add-screen");
-const popUpEl = document.querySelector("#image-popUp");
+//const addScreenEl = document.querySelector("#add-screen");
+const popUpEl = document.querySelector("#popUp");
+const popUpImage = document.querySelector("#popUp-image");
 const mainEl = document.querySelector("main");
 
 // SECOND MOCKUP
-addScreenEl.addEventListener("click", () => {
-  const mockupEl = document.querySelector("#mockup-second");
-  mockupEl.classList.remove("hidden");
-  addScreenEl.classList.add("hidden");
-});
+// addScreenEl.addEventListener("click", () => {
+//   const mockupEl = document.querySelector("#mockup-second");
+//   mockupEl.classList.remove("hidden");
+//   addScreenEl.classList.add("hidden");
+// });
 
 const allmockupsEl = Array.from(
   document.getElementsByClassName("mobile-mockup")
 );
 
-const removePopUp = () => {
-  document.body.classList.remove("active-popup");
-  popUpEl.innerHTML = "";
-  mainEl.removeEventListener("click", () => {});
-};
-
 function generateImage(canvasEl) {
   return new Promise((resolve) => {
-    var img = new Image();
     domtoimage
-      .toPng(canvasEl, { quality: 1 })
+      .toJpeg(canvasEl, { quality: 2 })
       .then(function (dataUrl) {
-        img.src = dataUrl;
-        return resolve(img);
+        return resolve(dataUrl);
       })
       .catch(function (error) {
         console.error("oops, something went wrong!", error);
@@ -46,55 +39,35 @@ function generateImage(canvasEl) {
 }
 
 const runGeneration = (canvasEl) => {
+  canvasEl.classList.remove("m-auto");
   generateImage(canvasEl).then(() => {
-    generateImage(canvasEl).then((img) => {
-      document.body.classList.add("active-popup");
-      popUpEl.appendChild(img);
-
-      mainEl.addEventListener("click", () => {
-        removePopUp();
+    console.log("first time");
+    generateImage(canvasEl).then(() => {
+      console.log("one more time to make sure ");
+      generateImage(canvasEl).then((dataUrl) => {
+        console.log("okay now it should be fine");
+        popUpImage.src = dataUrl;
+        document.body.classList.add("active-popup");
+        canvasEl.classList.add("m-auto");
+        popUpEl.addEventListener("click", () => {
+          console.log("HII");
+          document.body.classList.remove("active-popup");
+          mainEl.removeEventListener("click", () => {});
+        });
       });
     });
   });
-
-  // generateImage(canvasEl).then(() => {
-  //   console.log("first time");
-  //   generateImage().then(() => {
-  //     console.log("one more time to make sure ");
-  //     generateImage().then((img) => {
-  //       console.log("okay now it should be fine");
-  //       popUpEl.appendChild(img);
-  //       document.body.classList.add("active-popup");
-  //       mainEl.addEventListener("click", () => {
-  //         console.log("now2");
-  //         removePopUp();
-  //       });
-  //     });
-  //   });
-  // });
 };
 
-const prepareImage = (canvasEl) => {
-  // window.scroll({
-  //   top: 0,
-  //   left: 0,
-  // });
-  domtoimage
-    .toPng(canvasEl, { quality: 1 })
-    .then(function (dataUrl) {
-      document.body.classList.add("active-popup");
-      var img = new Image();
-      img.src = dataUrl;
-      popUpEl.appendChild(img);
+createImageButton.addEventListener("click", () => {
+  window.scroll({
+    top: 0,
+    left: 0,
+  });
 
-      mainEl.addEventListener("click", () => {
-        removePopUp();
-      });
-    })
-    .catch(function (error) {
-      console.error("oops, something went wrong!", error);
-    });
-};
+  runGeneration(canvasEl);
+  console.log("now");
+});
 
 // LOAD IMAGE FUNCTION
 const insertImage = (parrentEl, imageWrapperEl, imageFile) => {
@@ -146,8 +119,6 @@ allmockupsEl.forEach((parrentEl) => {
   const inputImageEl = parrentEl.querySelector(".input-image");
   const inputVideoEl = parrentEl.querySelector(".input-video");
   //const imageWrapperEl = parrentEl.querySelector(".imageWrapper");
-
-  console.log(inputImageEl);
 
   inputImageEl.addEventListener("change", (event) => {
     const { files } = event.target;
@@ -225,7 +196,3 @@ colorPicker.on("color:change", function (color) {
 // }
 
 // dragElement(document.getElementById("draggable"));
-
-createImageButton.addEventListener("click", () => {
-  runGeneration(canvasEl);
-});
