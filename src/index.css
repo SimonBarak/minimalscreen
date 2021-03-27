@@ -4,22 +4,29 @@
 
 @tailwind utilities;
 
-h1 {
-  font-family: "Inter";
-  font-weight: 500;
-  font-size: 3em;
-  color: rgb(245 245 245);
-  text-align: center;
-  padding: 0.75em 0.25em;
-  line-height: initial;
+@font-face {
+  font-family: "Space Grotest";
+  src: url(./font/SpaceGrotesk-SemiBold.woff2);
+  font-weight: 700;
 }
 
 :root {
-  --bg-color: rgb(184, 184, 184);
-  --text-color: rgb(255, 255, 255);
-  --mockup-color: rgb(18, 18, 18);
+  --bg-color: rgb(140, 140, 140);
+  --mockup-color: rgb(0, 0, 0);
   --rotation: rotate(-30deg);
   --shadow: -50px 65px 40px 0px rgb(0 0 0 / 60%);
+  --text-color: rgb(0, 0, 0);
+  --font-family: "Space Grotest";
+  --font-weight: 700;
+}
+
+h1 {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  font-size: 3em;
+  color: var(--text-color);
+  text-align: center;
+  line-height: initial;
 }
 
 .mobile-mockup {
@@ -63,10 +70,40 @@ input[type="file"] {
 
 .squere-canvas {
   width: 100vw;
-  max-width: 500px;
+  max-width: 35rem;
   height: 100vw;
-  max-height: 500px;
+  max-height: 35rem;
   background-color: var(--bg-color);
+  padding: 1.5rem;
+}
+
+.bg-video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(10px);
+}
+
+.canvas-controls {
+  width: 100vw;
+  max-width: 35rem;
+}
+
+.toggle-checkbox {
+  background-color: var(--bg-color);
+}
+
+.bg-video-wrapper {
+  width: 100vw;
+  max-width: 35rem;
+  height: 100vw;
+  max-height: 35rem;
+}
+
+@media (min-width: 599px) {
+  .squere-canvas {
+    padding: 2.5rem;
+  }
 }
 
 .initial-width {
@@ -139,6 +176,10 @@ input[type="file"] {
   }
 }
 
+.blure {
+  filter: blur(10px);
+}
+
 .active-popup main {
   filter: blur(20px);
 }
@@ -157,4 +198,18 @@ input[type="file"] {
 
 .btn-big {
   max-width: 320px;
+}
+
+.toggle-checkbox:checked {
+  right: 0;
+  border-color: #68d391;
+}
+.toggle-checkbox:checked + .toggle-label {
+  background-color: #68d391;
+}
+
+.draggable {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -5,14 +5,36 @@ import iro from "@jaames/iro";
 const imageInputEl = document.querySelector("#imageInput");
 const screenShotEl = document.querySelector("#screenShot");
 const inputLabelEl = document.querySelector("#inputLabel");
-const mockupEl = document.querySelector("#mockup");
-const canvasEl = document.querySelector("#canvas");
+const mockupEl = document.getElementById("mockup");
+const canvasEl = document.getElementById("canvas");
 const finalImageEl = document.querySelector("#finalImage");
 const createImageButton = document.querySelector("#create-image");
 //const addScreenEl = document.querySelector("#add-screen");
-const popUpEl = document.querySelector("#popUp");
-const popUpImage = document.querySelector("#popUp-image");
+const popUpEl = document.getElementById("popUp");
+const popUpImage = document.getElementById("popUp-image");
 const mainEl = document.querySelector("main");
+const bgVideoEl = document.getElementById("background-video");
+const toggleBackgroundButton = document.getElementById("toggleBackground");
+const togglePerspectiveButton = document.getElementById("togglePerspective");
+const bgVideoWrapper = document.getElementById("bg-video-wrapper");
+
+toggleBackgroundButton.addEventListener("change", ({ target }) => {
+  if (target.checked) {
+    bgVideoWrapper.classList.remove("opacity-0");
+  } else {
+    bgVideoWrapper.classList.add("opacity-0");
+  }
+});
+
+togglePerspectiveButton.addEventListener("click", ({ target }) => {
+  if (target.checked) {
+    mockupEl.classList.add("perspective");
+    mockupEl.classList.add("device-shadow");
+  } else {
+    mockupEl.classList.remove("perspective");
+    mockupEl.classList.remove("device-shadow");
+  }
+});
 
 // SECOND MOCKUP
 // addScreenEl.addEventListener("click", () => {
@@ -21,9 +43,15 @@ const mainEl = document.querySelector("main");
 //   addScreenEl.classList.add("hidden");
 // });
 
+const addBackgroudVideo = (url) => {
+  bgVideoEl.url();
+};
+
 const allmockupsEl = Array.from(
   document.getElementsByClassName("mobile-mockup")
 );
+
+// GENERATE IMAGE
 
 function generateImage(canvasEl) {
   return new Promise((resolve) => {
@@ -70,6 +98,7 @@ createImageButton.addEventListener("click", () => {
 });
 
 // LOAD IMAGE FUNCTION
+
 const insertImage = (parrentEl, imageWrapperEl, imageFile) => {
   var reader = new FileReader();
 
@@ -85,7 +114,8 @@ const insertImage = (parrentEl, imageWrapperEl, imageFile) => {
   reader.readAsDataURL(imageFile);
 };
 
-// LOAD MP4 FUNCTION
+// LOAD VIDEO FUNCTION
+
 const insertVideo = (parrentEl, imageWrapperEl, imageFile) => {
   var reader = new FileReader();
 
@@ -93,21 +123,36 @@ const insertVideo = (parrentEl, imageWrapperEl, imageFile) => {
     const dataUrl = event.target.result;
 
     let newVideo = document.createElement("video");
-    newVideo.defaultMuted = true;
+
     newVideo.setAttribute("type", "video/mp4");
     newVideo.setAttribute("src", dataUrl);
-    newVideo.setAttribute("controls", true);
-    newVideo.load();
-    newVideo.play();
     newVideo.setAttribute("loop", "true");
+    newVideo.defaultMuted = true;
+
+    let newBgVideo = document.createElement("video");
+
+    newBgVideo.setAttribute("type", "video/mp4");
+    newBgVideo.setAttribute("src", dataUrl);
+    newBgVideo.setAttribute("loop", "true");
+    newBgVideo.defaultMuted = true;
+    newVideo.load();
+    newBgVideo.load();
 
     imageWrapperEl.appendChild(newVideo);
-    parrentEl.classList.remove("initial-width");
+    bgVideoWrapper.appendChild(newBgVideo);
 
-    createImageButton.classList.add("opacity-10");
+    newBgVideo.onloadeddata = function () {
+      newBgVideo.play();
+      newVideo.play();
+      toggleBackgroundButton.setAttribute("checked", true);
+      parrentEl.classList.remove("initial-width");
+    };
+
+    createImageButton.classList.add("opacity-20");
     createImageButton.classList.add("pointer-events-none");
     const warningDiv = document.createElement("div");
-    warningDiv.innerHTML = "Sorry, video rendering is not a ready jet";
+    warningDiv.innerHTML =
+      "Video rendering isn't prepared. Use screen capture instead.";
     createImageButton.parentElement.appendChild(warningDiv);
   };
   reader.readAsDataURL(imageFile);
@@ -151,48 +196,48 @@ colorPicker.on("color:change", function (color) {
 });
 //
 
-// function dragElement(elmnt) {
-//   var pos1 = 0,
-//     pos2 = 0,
-//     pos3 = 0,
-//     pos4 = 0;
-//   if (document.getElementById(elmnt.id + "-handler")) {
-//     // if present, the handler is where you move the DIV from:
-//     document.getElementById(elmnt.id + "-handler").onmousedown = dragMouseDown;
-//   } else {
-//     // otherwise, move the DIV from anywhere inside the DIV:
-//     elmnt.onmousedown = dragMouseDown;
-//   }
+function dragElement(elmnt) {
+  var pos1 = 0,
+    pos2 = 0,
+    pos3 = 0,
+    pos4 = 0;
+  if (document.getElementById(elmnt.id + "-handler")) {
+    // if present, the handler is where you move the DIV from:
+    document.getElementById(elmnt.id + "-handler").onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
 
-//   function dragMouseDown(e) {
-//     e = e || window.event;
-//     e.preventDefault();
-//     // get the mouse cursor position at startup:
-//     pos3 = e.clientX;
-//     pos4 = e.clientY;
-//     document.onmouseup = closeDragElement;
-//     // call a function whenever the cursor moves:
-//     document.onmousemove = elementDrag;
-//   }
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
 
-//   function elementDrag(e) {
-//     e = e || window.event;
-//     e.preventDefault();
-//     // calculate the new cursor position:
-//     pos1 = pos3 - e.clientX;
-//     pos2 = pos4 - e.clientY;
-//     pos3 = e.clientX;
-//     pos4 = e.clientY;
-//     // set the element's new position:
-//     elmnt.style.top = elmnt.offsetTop - pos2 + "px";
-//     elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
-//   }
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = elmnt.offsetTop - pos2 + "px";
+    elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
+  }
 
-//   function closeDragElement() {
-//     // stop moving when mouse button is released:
-//     document.onmouseup = null;
-//     document.onmousemove = null;
-//   }
-// }
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
 
-// dragElement(document.getElementById("draggable"));
+dragElement(document.getElementById("draggable"));
