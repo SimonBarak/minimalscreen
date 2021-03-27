@@ -729,6 +729,10 @@ video {
   overflow: hidden;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -983,10 +987,16 @@ video {
 h1 {
   font-family: var(--font-family);
   font-weight: var(--font-weight);
-  font-size: 3em;
+  font-size: 2rem;
   color: var(--text-color);
   text-align: center;
   line-height: initial;
+}
+
+@media (min-width: 599px) {
+  h1 {
+    font-size: 3rem;
+  }
 }
 
 .mobile-mockup {
@@ -1034,7 +1044,13 @@ input[type="file"] {
   height: 100vw;
   max-height: 35rem;
   background-color: var(--bg-color);
-  padding: 1.5rem;
+  padding: 0.5rem;
+}
+
+@media (min-width: 599px) {
+  .squere-canvas {
+    padding: 2.5rem;
+  }
 }
 
 .bg-video-wrapper video {
@@ -1059,12 +1075,6 @@ input[type="file"] {
   max-width: 35rem;
   height: 100vw;
   max-height: 35rem;
-}
-
-@media (min-width: 599px) {
-  .squere-canvas {
-    padding: 2.5rem;
-  }
 }
 
 .initial-width {
@@ -1200,6 +1210,10 @@ input[type="file"] {
 
   .md\:mb-14 {
     margin-bottom: 3.5rem;
+  }
+
+  .md\:p-4 {
+    padding: 1rem;
   }
 }
 
