@@ -35,13 +35,13 @@
   </head>
   <body>
     <main>
-      <section class="relative h-48">
+      <section class="relative h-36 md:h-48">
         <div
           id="draggable"
-          class="draggable absolute top-0 w-full max-w-xl z-30"
+          class="draggable absolute top-0 w-full max-w-xl z-30 py-4"
         >
           <h1
-            class="focus:outline-none focus:border-none focus:shadow-outline-none z-30 py-4"
+            class="focus:outline-none focus:border-none focus:shadow-outline-none z-30 px-4"
             contenteditable="true"
           >
             Create screen mockup in&nbsp;a&nbsp;browser
@@ -49,7 +49,7 @@
 
           <span
             id="draggable-handler"
-            class="cursor-move h-8 w-8 right-0 bg-blue-400 rounded-full inline-block absolute top-0 opacity-10 hover:opacity-100 z-40"
+            class="draggable-handler cursor-move h-8 w-8 right-0 bg-blue-400 rounded-full inline-block absolute top-0 opacity-0 z-40"
           ></span>
         </div>
       </section>

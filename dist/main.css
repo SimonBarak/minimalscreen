@@ -624,8 +624,8 @@ video {
   height: 2rem;
 }
 
-.h-48 {
-  height: 12rem;
+.h-36 {
+  height: 9rem;
 }
 
 .h-full {
@@ -703,16 +703,8 @@ video {
   opacity: 0;
 }
 
-.opacity-10 {
-  opacity: 0.1;
-}
-
 .opacity-20 {
   opacity: 0.2;
-}
-
-.hover\:opacity-100:hover {
-  opacity: 1;
 }
 
 .focus\:outline-none:focus {
@@ -1182,13 +1174,21 @@ input[type="file"] {
 .draggable {
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 50%);
+}
+
+.draggable:hover .draggable-handler {
+  opacity: 1;
 }
 
 @media (min-width: 640px) {
 }
 
 @media (min-width: 768px) {
+  .md\:h-48 {
+    height: 12rem;
+  }
+
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
