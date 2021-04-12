@@ -109,7 +109,9 @@ const insertImage = (parrentEl, imageWrapperEl, imageFile) => {
     img.src = dataUrl;
 
     imageWrapperEl.appendChild(img);
+    console.log("now");
     parrentEl.classList.remove("initial-width");
+    parrentEl.classList.remove("initial-height");
   };
   reader.readAsDataURL(imageFile);
 };
@@ -146,6 +148,7 @@ const insertVideo = (parrentEl, imageWrapperEl, imageFile) => {
       newVideo.play();
       toggleBackgroundButton.setAttribute("checked", true);
       parrentEl.classList.remove("initial-width");
+      parrentEl.classList.remove("initial-height");
     };
 
     createImageButton.classList.add("opacity-20");
