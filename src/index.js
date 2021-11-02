@@ -87,16 +87,6 @@ const runGeneration = (canvasEl) => {
   });
 };
 
-createImageButton.addEventListener("click", () => {
-  window.scroll({
-    top: 0,
-    left: 0,
-  });
-
-  runGeneration(canvasEl);
-  console.log("now");
-});
-
 // LOAD IMAGE FUNCTION
 
 const insertImage = (parrentEl, imageWrapperEl, imageFile) => {

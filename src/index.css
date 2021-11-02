@@ -17,11 +17,11 @@
 }
 
 :root {
-  --bg-color: rgb(140, 140, 140);
+  --bg-color: rgb(237, 242, 247);
   --mockup-color: rgb(0, 0, 0);
   --rotation: rotate(-30deg);
   --shadow: -50px 65px 40px 0px rgb(0 0 0 / 60%);
-  --text-color: rgb(0, 0, 0);
+  --text-color: rgb(255, 255, 255);
   --font-family: "Inter";
   --font-weight: 400;
 }
@@ -122,9 +122,8 @@ input[type="file"] {
   position: relative;
   background-color: var(--mockup-color);
   box-shadow: 0 5px 20px 0px rgb(0 0 0);
-
   max-height: 80%;
-  max-width: 35%;
+  max-width: 90%;
 }
 
 .device-shadow {
