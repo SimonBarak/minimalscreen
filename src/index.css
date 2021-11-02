@@ -130,7 +130,7 @@ input[type="file"] {
   box-shadow: -5px 5px 2px 1px var(--mockup-color), var(--shadow);
 }
 
-.mobile-mockup::before {
+/* .mobile-mockup::before {
   content: "";
   position: absolute;
   pointer-events: none;
@@ -140,7 +140,7 @@ input[type="file"] {
   right: 2px;
   border-radius: 1.8rem;
   box-shadow: 0 60px 100px -48px rgb(150 150 150 / 10%);
-}
+} */
 
 .mobile-mockup::after {
   content: "";

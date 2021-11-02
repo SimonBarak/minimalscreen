@@ -522,9 +522,9 @@ video {
           appearance: none;
 }
 
-.bg-gray-100 {
+.bg-gray-500 {
   --tw-bg-opacity: 1;
-  background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+  background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
 }
 
 .bg-blue-400 {
@@ -532,14 +532,14 @@ video {
   background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
 }
 
-.hover\:bg-gray-100:hover {
+.hover\:bg-gray-500:hover {
   --tw-bg-opacity: 1;
-  background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+  background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
 }
 
-.border-gray-700 {
+.border-gray-500 {
   --tw-border-opacity: 1;
-  border-color: rgba(55, 65, 81, var(--tw-border-opacity));
+  border-color: rgba(107, 114, 128, var(--tw-border-opacity));
 }
 
 .focus\:border-blue-300:focus {
@@ -794,9 +794,9 @@ video {
   text-align: center;
 }
 
-.text-gray-700 {
+.text-gray-100 {
   --tw-text-opacity: 1;
-  color: rgba(55, 65, 81, var(--tw-text-opacity));
+  color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 
 .text-blue-700 {
@@ -1066,7 +1066,7 @@ input[type="file"] {
   box-shadow: -5px 5px 2px 1px var(--mockup-color), var(--shadow);
 }
 
-.mobile-mockup::before {
+/* .mobile-mockup::before {
   content: "";
   position: absolute;
   pointer-events: none;
@@ -1076,7 +1076,7 @@ input[type="file"] {
   right: 2px;
   border-radius: 1.8rem;
   box-shadow: 0 60px 100px -48px rgb(150 150 150 / 10%);
-}
+} */
 
 .mobile-mockup::after {
   content: "";
